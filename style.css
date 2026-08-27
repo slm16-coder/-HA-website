@@ -1,0 +1,454 @@
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #151c2e;
+    --accent-blue: #00d2ff;
+    --accent-gold: #ffb703;
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(11, 15, 25, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    position: relative;
+}
+
+.logo img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Menü Elemanları ve Eşit Boşluk Düzenlemesi */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2rem; /* Bütün linklerin arasını milimetrik eşitler */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Metinlerin alt satıra kaymasını önler */
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* Saf CSS Mobil Menü Kontrolleri (Checkbox Hack) */
+.menu-checkbox {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: radial-gradient(circle at center, #1a233a 0%, var(--bg-main) 70%);
+}
+
+.hero-badge {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent-blue);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 1.5rem 0;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: #000;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Section Yapısı */
+section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: var(--accent-blue);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.about-lead {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+}
+
+/* Vizyon - Misyon & Projeler */
+.vision-mission-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.vm-card, .project-card {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.vm-card { text-align: center; }
+.project-card { border-left: 4px solid var(--accent-blue); }
+
+.vm-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 210, 255, 0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 1.5rem;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+}
+
+/* Footer */
+.footer {
+    background: #070a12;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 2rem 1rem;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-col h3 { font-family: var(--font-heading); margin-bottom: 1rem; }
+.footer-col h3 span, .footer-col h4 { color: var(--accent-blue); }
+.footer-col h4 { font-family: var(--font-heading); margin-bottom: 1.2rem; }
+.footer-col p { color: var(--text-secondary); font-size: 0.9rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col ul a { color: var(--text-secondary); text-decoration: none; transition: 0.3s; }
+.footer-col ul a:hover { color: #fff; }
+
+.social-links { margin-top: 1rem; display: flex; gap: 1rem; }
+.social-links a { color: #fff; font-size: 1.2rem; transition: 0.3s; }
+.social-links a:hover { color: var(--accent-blue); }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .menu-icon { display: block; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #0b0f19;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; }
+}
+
+/* Takımımız Sayfası */
+.team-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 20px 60px;
+}
+
+.team-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-hero h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.team-hero h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background-color: var(--accent-blue);
+    border-radius: 2px;
+}
+
+.team-hero p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.team-section {
+    margin-bottom: 50px;
+}
+
+.team-section .section-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.team-section .single-card-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.team-section .ata-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 35px 25px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.team-section .ata-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-blue);
+    opacity: 0.85;
+    transition: height 0.3s ease;
+}
+
+.team-section .ata-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.15);
+}
+
+.team-section .ata-card:hover::before {
+    height: 6px;
+}
+
+.team-section .card-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #111827;
+    border: 2px solid var(--accent-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-section .card-avatar i {
+    font-size: 1.7rem;
+    color: var(--accent-blue);
+}
+
+.team-section .card-body h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.team-section .card-body .role {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.team-section .card-body p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+}
+
+.team-section .card-footer {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-section .card-footer a {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.team-section .card-footer a:hover {
+    color: var(--accent-blue);
+    transform: scale(1.2);
+}
