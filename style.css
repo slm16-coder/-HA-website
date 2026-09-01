@@ -1,5 +1,5 @@
 :root {
-    --bg-main: #0b0f19;
+    --bg-main: #131f3f;
     --bg-card: #151c2e;
     --accent-blue: #00d2ff;
     --accent-gold: #ffb703;
@@ -17,25 +17,30 @@
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.6; /*Oran ölçüsüdür satır yüksekliğine oranlar*/
 }
+
+
 
 /* Navbar */
 .navbar {
+    width: 100%;
     position: fixed;
     top: 0;
-    width: 100%;
-    background: rgba(11, 15, 25, 0.95);
+    background: rgba(18, 24, 41, 0.95);
     backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-container {
-    max-width: 1200px;
+    width:100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -44,11 +49,32 @@ body {
     position: relative;
 }
 
+.logo {
+    display: inline-flex;  /* Görsel ve yazıyı esnek yapıda yan yana getirir */
+    align-items: center;    /* Dikeyde tam ortalar */
+    gap: 25px;              /* Logo ile yazı arasındaki boşluk */
+    text-decoration: none !important; /* Mor/mavi alt çizgiyi tamamen kaldırır */
+}
+
+.logo:visited, 
+.logo:hover, 
+.logo:active {
+    text-decoration: none !important;
+}
+
 .logo img {
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;  
+    font-weight: 800;    
+    color: #ffffff;      
+    letter-spacing: 1px; 
 }
 
 /* Menü Elemanları ve Eşit Boşluk Düzenlemesi */
@@ -99,7 +125,7 @@ body {
     justify-content: center;
     text-align: center;
     padding: 0 1rem;
-    background: radial-gradient(circle at center, #1a233a 0%, var(--bg-main) 70%);
+    background: radial-gradient(circle at center, #131f3f 0%, rgba(18, 24, 41, 0.95) 100%);
 }
 
 .hero-badge {
@@ -108,24 +134,38 @@ body {
     padding: 0.5rem 1.2rem;
     border-radius: 50px;
     font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-weight: 400;
+    letter-spacing: 1px;
     border: 1px solid rgba(0, 210, 255, 0.3);
+    margin-bottom:1.5rem;
 }
 
 .hero-content h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
     font-weight: 900;
-    margin: 1.5rem 0;
-    letter-spacing: 2px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    display: block;
+    font-style:italic;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    
 }
 
 .hero-content p {
     color: var(--text-secondary);
     font-size: 1.2rem;
     max-width: 650px;
-    margin: 0 auto 2.5rem;
+    margin: 2rem auto 2.5rem;
+    
 }
 
 .hero-buttons {
@@ -183,6 +223,7 @@ section {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     letter-spacing: 2px;
+    margin-bottom: 1rem;
 }
 
 .title-underline {
@@ -195,17 +236,20 @@ section {
 
 .about-lead {
     text-align: center;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto 4rem;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
     color: var(--text-secondary);
 }
+
 
 /* Vizyon - Misyon & Projeler */
 .vision-mission-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .vm-card, .project-card {
@@ -214,6 +258,7 @@ section {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.3s ease, border-color 0.3s ease;
+    margin-top: 2rem;
 }
 
 .vm-card { text-align: center; }
@@ -240,7 +285,7 @@ section {
 
 /* Footer */
 .footer {
-    background: #070a12;
+    background: rgba(18, 24, 41, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 4rem 2rem 1rem;
     width: 100%;
@@ -342,113 +387,36 @@ section {
 }
 
 .team-section {
-    margin-bottom: 50px;
+    background: var(--bg-card);               /* Kutunun arka plan rengi */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Çerçevenin çizgisi */
+    border-radius: 30px;                      /* Çerçevenin köşe yuvarlatması */
+    padding: 30px 25px;                       /* Kutu içi yazılarda nefes alma payı */
+    margin-bottom: 50px;                      /* 3 kutunun birbirinden ayrılma mesafesi */
+    
+    /* Şık görünmesi için gölge ve hover geçişi */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+
+/* Bölüm Başlıkları (YAZILIM EKİBİMİZ, MEKANİK EKİBİMİZ vs.) */
 .team-section .section-title {
     font-size: 1.5rem;
     color: #ffffff;
+    font-weight: 600;
+    text-align: center;
     margin-bottom: 20px;
-    font-weight: 600;
-    text-align: center;
 }
 
-.team-section .single-card-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.team-section .ata-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 35px 25px 25px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.team-section .ata-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent-blue);
-    opacity: 0.85;
-    transition: height 0.3s ease;
-}
-
-.team-section .ata-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.15);
-}
-
-.team-section .ata-card:hover::before {
-    height: 6px;
-}
-
-.team-section .card-avatar {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    background: #111827;
-    border: 2px solid var(--accent-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.team-section .card-avatar i {
-    font-size: 1.7rem;
-    color: var(--accent-blue);
-}
-
-.team-section .card-body h3 {
+/* Bölüm Paragrafları */
+.team-section p {
+    color: var(--text-secondary);
     font-size: 1.25rem;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-.team-section .card-body .role {
-    font-size: 0.85rem;
-    color: var(--accent-blue);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-}
-
-.team-section .card-body p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
     line-height: 1.6;
-    margin: 0 0 18px 0;
+    margin-bottom: 18px;
+    max-width: 800px;   
+    margin-left: auto;   
+    margin-right: auto; 
+    text-align: center;  
 }
 
-.team-section .card-footer {
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.team-section .card-footer a {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.team-section .card-footer a:hover {
-    color: var(--accent-blue);
-    transform: scale(1.2);
-}
