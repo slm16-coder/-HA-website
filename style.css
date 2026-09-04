@@ -53,7 +53,7 @@ body {
     display: inline-flex;  /* Görsel ve yazıyı esnek yapıda yan yana getirir */
     align-items: center;    /* Dikeyde tam ortalar */
     gap: 25px;              /* Logo ile yazı arasındaki boşluk */
-    text-decoration: none !important; /* Mor/mavi alt çizgiyi tamamen kaldırır */
+    text-decoration: none !important; /* Mor/mavi alt çizgiyi tamamen kaldırır */ 
 }
 
 .logo:visited, 
@@ -63,18 +63,21 @@ body {
 }
 
 .logo img {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
     border-radius: 50%;
     object-fit: cover;
+    margin-top: 20px;
+    position: absolute;
 }
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: 1.5rem;  
+    font-size: 1rem;  
     font-weight: 800;    
     color: #ffffff;      
     letter-spacing: 1px; 
+    margin-left: 100px;
 }
 
 /* Menü Elemanları ve Eşit Boşluk Düzenlemesi */
@@ -142,6 +145,7 @@ body {
 
 .hero-content h1 {
     font-family: 'Orbitron', sans-serif;
+    font-style: italic;
     font-size: 5rem;
     font-weight: 900;
     margin-top: 1rem;
@@ -163,6 +167,7 @@ body {
 .hero-content p {
     color: var(--text-secondary);
     font-size: 1.2rem;
+    font-style: italic;
     max-width: 650px;
     margin: 2rem auto 2.5rem;
     
